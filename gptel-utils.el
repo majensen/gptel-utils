@@ -53,7 +53,7 @@ in `gptel-utils-autosave-dir`"
 
 (defun gptel-utils-ensure-saved (&rest beg end)
   "Ensure gptel buffer (current) has a file and save it."
-  (when (and (boundp 'gptel-mode) gptel-utils-autosave-chats)
+  (when (and (gptel-mode) gptel-utils-autosave-chats)
     (unless (buffer-file-name)
       (let* ((timestamp (format-time-string "%Y%m%d-%H%M%S"))
              (extension (if (derived-mode-p 'org-mode) "org" "md"))
