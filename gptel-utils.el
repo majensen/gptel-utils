@@ -121,4 +121,14 @@ in `gptel-utils-autosave-dir`"
       (switch-to-buffer (ring-previous gptel-utils-chat-buffer-ring (current-buffer)))
     ))
 
+;;;###autoload
+(defun gptel-utils-restore-chat (chatfile)
+  "Open a previously saved chat"
+  (interactive
+   (list (read-file-name "Chat: " gptel-utils-autosave-dir "")))
+  (when (not (eq chatfile ""))
+    (find-file chatfile)
+    (gptel-mode)))
+
+
 ;;; gptel-utils.el ends here
