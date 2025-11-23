@@ -38,11 +38,13 @@
 ;;; Code:
 (defcustom gptel-utils-autosave-dir "~/.gptel/saved-chats/"
   "Directory in which to save gptel chat content."
+  :group 'gptel
   :type 'directory)
 
 (defcustom gptel-utils-autosave-chats t
   "If set, automatically save model chats in files
 in `gptel-utils-autosave-dir`"
+  :group 'gptel
   :type 'boolean)
 
 (defvar gptel-utils-chat-buffer-ring-size 10
@@ -51,7 +53,7 @@ in `gptel-utils-autosave-dir`"
 (defvar gptel-utils-chat-buffer-ring (make-ring gptel-utils-chat-buffer-ring-size)
   "Ring of open gptel chat buffers")
 
-(defun gptel-utils-ensure-saved (&rest beg end)
+(defun gptel-utils-ensure-saved ()
   "Ensure gptel buffer (current) has a file and save it."
   (when (and (gptel-mode) gptel-utils-autosave-chats)
     (unless (buffer-file-name)
