@@ -53,7 +53,7 @@ in `gptel-utils-autosave-dir`"
 (defvar gptel-utils-chat-buffer-ring (make-ring gptel-utils-chat-buffer-ring-size)
   "Ring of open gptel chat buffers")
 
-(defun gptel-utils-ensure-saved ()
+(defun gptel-utils-ensure-saved (beg end)
   "Ensure gptel buffer (current) has a file and save it."
   (when (and (gptel-mode) gptel-utils-autosave-chats)
     (unless (buffer-file-name)
